@@ -239,3 +239,45 @@
 // }
 
 // console.log(isPrime(50))
+
+
+//Linear Search
+
+const array = [1, 2, 52, 30, 12, 15, 22];
+
+const team = [
+    { id: 2, name: "Forhad" },
+    { id: 5, name: "Asif" },
+    { id: 3, name: "Rahman" },
+    { id: 7, name: "Atif" },
+]
+
+
+// const linearSearch = (array, checkArray) => {
+//     for (let i = 0; i < array.length; i++) {
+//         if (checkArray(array[i])) {
+//             return i
+//         }
+//     }
+//     return -1
+// }
+// console.log(linearSearch(team, (item)=> item.name === "Atif"))
+
+//Binary Search
+
+const binarySearch = (array, key) => {
+    let lowest = 0;
+    let height = array.length - 1;
+
+    while (lowest <= height) {
+        let mid = Math.floor((lowest + height) / 2)
+        if (array[mid] === key) return mid
+        if (array[mid] < key) lowest = mid + 1;
+        if (array[mid] > key) height = mid - 1;
+    }
+
+    return -1
+}
+array.sort((a, b) => { return a - b })
+console.log(array)
+console.log(binarySearch(array, 22))
